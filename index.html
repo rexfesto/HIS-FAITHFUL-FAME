@@ -1,16 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<<<<<<< HEAD
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+=======
+  <!-- Force browser to always load the latest version -->
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+>>>>>>> 23851a3 (Add cache busting meta and version)
 <meta http-equiv="Pragma" content="no-cache" />
 <meta http-equiv="Expires" content="0" />
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>His Faithful Fame Ministries</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=2">
+<script src="script.js?v=2"></script>
+
 </head>
-<body>
+<body><script>
+  // Reload site once per new build
+  fetch(window.location.href, { cache: "no-store" })
+    .then(() => console.log("Cache cleared. Fresh version loaded."));
+</script>
+</body>
   <!-- Navigation -->
   <header>
     <nav class="navbar">

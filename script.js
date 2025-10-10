@@ -1,25 +1,132 @@
-// Scroll Highlight Effect for Navbar Links
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Force browser to always load the latest version -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
 
-// Grab all section elements and nav links
-const sections = document.querySelectorAll("section[id]");
-const navLinks = document.querySelectorAll(".nav-links a");
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>His Faithful Fame Ministries</title>
+  <link rel="stylesheet" href="style.css?v=2">
+  <script src="script.js?v=2"></script>
+</head>
 
-// Listen to scroll event
-window.addEventListener("scroll", () => {
-  let scrollY = window.pageYOffset;
+<body>
+  <script>
+    // Reload site once per new build
+    fetch(window.location.href, { cache: "no-store" })
+      .then(() => console.log("Cache cleared. Fresh version loaded."));
+  </script>
+  <script>
+    // Force reload if a new version of the site is deployed
+    fetch(window.location.href, { cache: "no-store" }).then(response => {
+      const newVersion = response.headers.get("last-modified");
+      const currentVersion = localStorage.getItem("site-version");
+      if (currentVersion && currentVersion !== newVersion) {
+        localStorage.setItem("site-version", newVersion);
+        location.reload(true);
+      } else {
+        localStorage.setItem("site-version", newVersion);
+      }
+    });
+  </script>
 
-  sections.forEach((section) => {
-    const sectionHeight = section.offsetHeight;
-    const sectionTop = section.offsetTop - 120; // adjust for navbar height
-    const sectionId = section.getAttribute("id");
+  <!-- Navigation -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">HFF Ministries</div>
+      <ul class="nav-links">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#programs">Programs</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-      // Remove 'active' from all links
-      navLinks.forEach((link) => link.classList.remove("active"));
-      // Add 'active' to the one that matches current section
-      document
-        .querySelector('.nav-links a[href="#' + sectionId + '"]')
-        .classList.add("active");
-    }
-  });
-});
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>Welcome to His Faithful Fame Ministries</h1>
+      <p>Raising a faithful generation for Christ</p>
+      <a href="#about" class="btn">Learn More</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <h2>About Us</h2>
+    <p>
+      His Faithful Fame Ministries is a Christ-centered ministry dedicated to
+      spreading the gospel, nurturing believers, and building a community rooted
+      in faith, love, and service. Our mission is to glorify God and make His
+      name famous in all the earth.
+    </p>
+  </section>
+
+  <!-- Programs Section -->
+  <section id="programs" class="programs">
+    <h2>Our Programs</h2>
+    <div class="program-grid">
+      <div class="program">
+        <h3>Sunday Service</h3>
+        <p>Join us every Sunday by 9 AM for worship, word, and fellowship.</p>
+      </div>
+      <div class="program">
+        <h3>Bible Study</h3>
+        <p>Dive deeper into God's Word every Wednesday at 6 PM.</p>
+      </div>
+      <div class="program">
+        <h3>Youth Fellowship</h3>
+        <p>Equipping the next generation every Friday at 5 PM.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery-grid">
+      <img src="https://images.unsplash.com/photo-1504203700686-0b6d3d6b41d2?fit=crop&w=400&q=80" alt="Worship">
+      <img src="https://images.unsplash.com/photo-1544457070-4cd773b4d71c?fit=crop&w=400&q=80" alt="Prayer">
+      <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?fit=crop&w=400&q=80" alt="Fellowship">
+    </div>
+  </section>
+
+  <!-- Sermon Section -->
+  <section class="sermon">
+    <h2>Latest Sermon</h2>
+    <p><strong>Topic:</strong> Faith That Moves Mountains</p>
+    <audio controls>
+      <source src="audio/sermon.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </section>
+
+  <!-- Donation Section -->
+  <section class="donate">
+    <h2>Support the Ministry</h2>
+    <p>Your giving helps us reach more souls and transform lives.</p>
+    <a href="#" class="btn">Give Now</a>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <p>Get in touch with His Faithful Fame Ministries for inquiries, prayer requests, or partnership.</p>
+    <p>Email: contact@hisfaithfulfame.org</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 His Faithful Fame Ministries. All Rights Reserved.</p>
+    <div class="socials">
+      <a href="#">Facebook</a> | 
+      <a href="#">YouTube</a> | 
+      <a href="#">Instagram</a> |
+      <a href="#">Tiktok</a>
+    </div>
+  </footer>
+</body>
+</html>

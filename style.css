@@ -158,6 +158,11 @@ footer .socials a {
   text-decoration: none;
   margin: 0 5px;
 }
+footer a:hover {
+  background-color: white;
+  color: black;
+  transition: 0.3s;
+}
 
 /* Hero Overlay */
 .hero {

@@ -255,3 +255,31 @@ textarea { min-height: 120px; resize: vertical; }
   .card-section, .donate, .sermon { margin: 0.8rem 10px; padding: 1rem; }
   .footer .socials { gap: 10px; }
 }
+/* --- Global Center Alignment Fix --- */
+section, 
+.about, 
+.programs, 
+.sermon, 
+.donate, 
+.gallery, 
+.contact, 
+footer {
+  text-align: center;
+}
+
+/* Center inner containers */
+.container, 
+.hero-content, 
+.card-section {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+/* Ensure hero text stays centered */
+.hero-content h1,
+.hero-content p {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}

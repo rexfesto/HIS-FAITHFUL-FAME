@@ -283,3 +283,65 @@ footer {
   margin-left: auto;
   margin-right: auto;
 }
+/* =========================
+   FORCE CENTER LAYOUT (Place at END of style.css)
+   ========================= */
+
+.container,
+.card-section,
+.about,
+.programs,
+.gallery,
+.sermon,
+.donate,
+.contact,
+footer {
+  max-width: 1100px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 16px;
+  padding-right: 16px;
+  text-align: center !important;
+  box-sizing: border-box;
+}
+
+/* center headings and paragraphs */
+h1, h2, h3, p {
+  text-align: center !important;
+}
+
+/* center navigation */
+.nav-links {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+/* center grid items (programs & gallery) */
+.program-grid,
+.gallery-grid {
+  justify-items: center;
+  align-items: start;
+}
+
+/* ensure program cards and grid children are centered inside their cells */
+.program,
+.gallery-grid > * {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* center forms */
+form, form * {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: left; /* keep labels/inputs normal flow, but form block centered */
+}
+
+/* small-screen safety */
+@media (max-width: 768px) {
+  section { padding-left: 14px; padding-right: 14px; }
+  .hero-content { padding-left: 12px; padding-right: 12px; }
+  .nav-links { gap: 0.6rem; }
+}

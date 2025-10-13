@@ -1,3 +1,13 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   color: #333;
   background-color: #f9f9f9;
@@ -244,3 +254,44 @@ footer a:hover {
 .socials a:hover {
   text-decoration: underline;
 }
+/* Responsive Fix for Mobile */
+@media (max-width: 768px) {
+  .navbar ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero h1 {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+
+  .hero p {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .program-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  section {
+    padding: 30px 15px;
+  }
+
+  .footer {
+    text-align: center;
+  }
+
+  .footer .socials {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+

@@ -404,4 +404,24 @@ form, form * {
   background: white;
   color: #0078ff;
 }
+.apply-section {
+  text-align: center;
+  padding: 40px 0;
+  background: #f9f9f9;
+}
+
+.apply-section .btn {
+  background-color: #1e3a8a;
+  color: white;
+  padding: 12px 28px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.apply-section .btn:hover {
+  background-color: #2c49c5;
+}
+
 

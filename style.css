@@ -351,4 +351,57 @@ form, form * {
   align-items: center; /* centers both buttons */
   gap: 10px; /* adds space between them */
 }
+/* Final Section Styling */
+.cta-section {
+  background: linear-gradient(135deg, #0078ff, #00c6ff);
+  color: white;
+  text-align: center;
+  padding: 80px 20px;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+}
+
+.cta-section h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.cta-section p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.btn {
+  background: white;
+  color: #0078ff;
+  padding: 14px 35px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: #003d80;
+  color: white;
+}
+
+/* Optional: make the Support button stand out slightly */
+.support-btn {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+}
+
+.support-btn:hover {
+  background: white;
+  color: #0078ff;
+}
 

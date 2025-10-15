@@ -6,11 +6,6 @@
   <title>Apply for Elect Trust Endowment</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #f9f9f9;
-      margin: 0;
-    }
     main {
       max-width: 700px;
       margin: 100px auto;
@@ -48,54 +43,67 @@
       background: #2c49c5;
     }
 
-    /* ✅ Success popup */
+    /* Success popup */
     .popup {
       position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      display: none;
-      justify-content: center;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      display: flex;
       align-items: center;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 999;
+      justify-content: center;
+      visibility: hidden;
+      opacity: 0;
+      transition: all 0.3s ease;
+      z-index: 9999;
     }
     .popup.active {
-      display: flex;
+      visibility: visible;
+      opacity: 1;
     }
     .popup-content {
       background: #fff;
-      border-radius: 12px;
       padding: 40px 30px;
+      border-radius: 15px;
       text-align: center;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-      animation: popIn 0.4s ease;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      animation: scaleIn 0.3s ease;
     }
-    @keyframes popIn {
-      from {transform: scale(0.7); opacity: 0;}
-      to {transform: scale(1); opacity: 1;}
+    @keyframes scaleIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
     }
-    .popup-content .checkmark {
-      font-size: 60px;
-      color: #16a34a;
-      margin-bottom: 15px;
-    }
-    .popup-content h2 {
-      margin-bottom: 10px;
-      color: #1e3a8a;
-    }
-    .popup-content p {
-      color: #555;
-      margin-bottom: 20px;
-    }
-    .popup-content a {
+    .popup .checkmark {
       background: #1e3a8a;
       color: white;
-      padding: 10px 18px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 600;
+      width: 80px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      margin: 0 auto 20px;
+      font-size: 40px;
     }
-    .popup-content a:hover {
+    .popup h2 {
+      color: #1e3a8a;
+      margin-bottom: 10px;
+    }
+    .popup p {
+      color: #333;
+      margin-bottom: 20px;
+    }
+    .popup .btn {
+      background: #1e3a8a;
+      color: white;
+      padding: 10px 25px;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .popup .btn:hover {
       background: #2c49c5;
     }
   </style>
@@ -142,13 +150,13 @@
   </form>
 </main>
 
-<!-- ✅ Popup message -->
+<!-- Success popup -->
 <div class="popup" id="successPopup">
   <div class="popup-content">
-    <div class="checkmark">✅</div>
-    <h2>Application Submitted</h2>
+    <div class="checkmark">✔</div>
+    <h2>Application Submitted!</h2>
     <p>Your application has been submitted successfully.</p>
-    <a href="index.html">Return to Home</a>
+    <a href="index.html" class="btn">Return to Home</a>
   </div>
 </div>
 
@@ -156,33 +164,28 @@
   <p>© 2025 His Faithful Fame Ministries</p>
 </footer>
 
-<!-- ✅ Script to handle popup -->
 <script>
-const form = document.getElementById('applicationForm');
-const popup = document.getElementById('successPopup');
+  const form = document.getElementById('applicationForm');
+  const popup = document.getElementById('successPopup');
 
-form.addEventListener('submit', async (e) => {
-  e.preventDefault();
-  const data = new FormData(form);
-  const action = form.action;
-
-  try {
-    const response = await fetch(action, {
-      method: 'POST',
-      body: data,
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: formData,
       headers: { 'Accept': 'application/json' }
     });
     if (response.ok) {
       popup.classList.add('active');
       form.reset();
-      window.history.pushState({}, '', 'index.html');
+
+      // Automatically redirect if user goes back or after some seconds
+      window.onpopstate = () => window.location.href = 'index.html';
     } else {
-      alert('Something went wrong. Please try again.');
+      alert('There was an error submitting your form. Please try again.');
     }
-  } catch (error) {
-    alert('Network error. Please try again later.');
-  }
-});
+  });
 </script>
 
 </body>

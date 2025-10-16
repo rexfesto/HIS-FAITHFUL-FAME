@@ -359,6 +359,8 @@ form, form * {
   padding: 80px 20px;
   border-top-left-radius: 50px;
   border-top-right-radius: 50px;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
 }
 
 .cta-section h2 {

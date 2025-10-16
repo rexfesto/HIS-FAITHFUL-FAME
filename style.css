@@ -269,8 +269,7 @@ textarea {
 /* Apply Now Section */
 .apply-section {
   text-align: center;
-  background: #f9f9f9;
-  padding: 25px 0; /* reduced height */
+  padding: 0px 0; /* reduced height */
 }
 
 .apply-section .btn {

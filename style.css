@@ -269,14 +269,15 @@ textarea {
 /* Apply Now Section */
 .apply-section {
   text-align: center;
-  padding: 0px 0; /* reduced height */
+  background: #f9f9f9;
+  padding: 5px 0; /* reduced height */
 }
 
 .apply-section .btn {
   background: white;
   border: 2px solid #0078ff;
   color: #0078ff;
-  padding: 10px 28px; /* smaller padding */
+  padding: 5px 5px; /* smaller padding */
   border-radius: 50px;
   font-weight: 600;
   text-decoration: none;
@@ -293,7 +294,7 @@ textarea {
   background: linear-gradient(135deg, #0078ff, #00c6ff);
   color: white;
   text-align: center;
-  padding: 30px 15px; /* reduced padding */
+  padding: 5px 5px; /* reduced padding */
 }
 
 .cta-section h2 {
@@ -310,7 +311,7 @@ textarea {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 5px;
 }
 
 /* Footer */
@@ -318,7 +319,7 @@ textarea {
   background: linear-gradient(135deg, #0078ff, #00c6ff);
   color: #fff;
   text-align: center;
-  padding: 18px 10px; /* smaller height */
+  padding: 5px 5px; /* smaller height */
   width: 100%;
   margin-top: 0;
   position: relative;

@@ -1,233 +1,132 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Apply for Elect Trust Endowment</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apply for Support | Elect Trust Endowment</title>
   <style>
-    main {
-      max-width: 700px;
-      margin: 100px auto;
-      background: #fff;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: linear-gradient(135deg, #0b2a5b, #123c7a);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
+
+    .card {
+      background: #ffffff;
+      max-width: 480px;
+      width: 100%;
+      padding: 28px 22px 32px;
+      border-radius: 16px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+      animation: fadeUp 0.8s ease;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     h1 {
       text-align: center;
-      color: #1e3a8a;
-      margin-bottom: 20px;
-    }
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-    input, textarea, select {
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      width: 100%;
-    }
-    button {
-      background: #1e3a8a;
-      color: #fff;
-      border: none;
-      padding: 12px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 1rem;
-    }
-    button:hover {
-      background: #2c49c5;
+      font-size: 22px;
+      margin-bottom: 6px;
+      color: #0b2a5b;
     }
 
-    /* Popup styling */
-    .popup {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.6);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      visibility: hidden;
-      opacity: 0;
-      transition: all 0.3s ease;
-      z-index: 9999;
-    }
-    .popup.active {
-      visibility: visible;
-      opacity: 1;
-    }
-    .popup-content {
-      background: #fff;
-      padding: 40px 30px;
-      border-radius: 15px;
+    p.subtitle {
       text-align: center;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-      animation: scaleIn 0.3s ease;
-    }
-    @keyframes scaleIn {
-      from { transform: scale(0.8); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
+      font-size: 13px;
+      color: #555;
+      margin-bottom: 24px;
     }
 
-    /* Animated checkmark circle */
-    .checkmark-wrapper {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-    .checkmark {
-      width: 90px;
-      height: 90px;
-      border-radius: 50%;
+    label {
       display: block;
-      stroke-width: 4;
-      stroke: #fff;
-      stroke-miterlimit: 10;
-      margin: 0 auto;
-      box-shadow: inset 0px 0px 0px #1e3a8a;
-      animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
-      background: #1e3a8a;
-    }
-    .checkmark__circle {
-      stroke-dasharray: 166;
-      stroke-dashoffset: 166;
-      stroke-width: 4;
-      stroke-miterlimit: 10;
-      stroke: #1e3a8a;
-      fill: none;
-      animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
-    }
-    .checkmark__check {
-      transform-origin: 50% 50%;
-      stroke-dasharray: 48;
-      stroke-dashoffset: 48;
-      animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
-    }
-
-    @keyframes stroke {
-      100% { stroke-dashoffset: 0; }
-    }
-    @keyframes scale {
-      0%, 100% { transform: none; }
-      50% { transform: scale3d(1.1, 1.1, 1); }
-    }
-    @keyframes fill {
-      100% { box-shadow: inset 0px 0px 0px 60px #1e3a8a; }
-    }
-
-    .popup h2 {
-      color: #1e3a8a;
-      margin-bottom: 10px;
-    }
-    .popup p {
+      font-size: 13px;
+      margin-bottom: 6px;
       color: #333;
-      margin-bottom: 20px;
+      font-weight: 600;
     }
-    .popup .btn {
-      background: #1e3a8a;
-      color: white;
-      padding: 10px 25px;
-      border-radius: 5px;
+
+    input, textarea, select {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 13px;
+    }
+
+    textarea { resize: vertical; min-height: 90px; }
+
+    button {
+      width: 100%;
+      padding: 13px;
+      background: #0b2a5b;
+      color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #123c7a;
+    }
+
+    .back {
+      text-align: center;
+      margin-top: 16px;
+    }
+
+    .back a {
+      font-size: 13px;
+      color: #0b2a5b;
       text-decoration: none;
-      transition: 0.3s;
-    }
-    .popup .btn:hover {
-      background: #2c49c5;
+      font-weight: 600;
     }
   </style>
 </head>
 <body>
+  <div class="card">
+    <h1>Apply for Support</h1>
+    <p class="subtitle">Elect Trust Endowment – Sharing Christ in Action</p>
 
-<header>
-  <div class="navbar">
-    <div class="logo">His Faithful Fame Ministries</div>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="elect-trust.html">Elect Trust Endowment</a></li>
-      <li><a href="#" class="active">Apply</a></li>
-    </ul>
-  </div>
-</header>
+    <form>
+      <label>Full Name</label>
+      <input type="text" placeholder="Enter your full name" required />
 
-<main>
-  <h1>Elect Trust Endowment Application Form</h1>
+      <label>Email Address</label>
+      <input type="email" placeholder="Enter your email" required />
 
-  <form id="applicationForm" action="https://formspree.io/f/xkgqkwjg" method="POST">
-    <label>Full Name</label>
-    <input type="text" name="name" required>
+      <label>Phone Number</label>
+      <input type="tel" placeholder="Enter your phone number" required />
 
-    <label>Email Address</label>
-    <input type="email" name="email" required>
+      <label>Type of Support Needed</label>
+      <select required>
+        <option value="">Select an option</option>
+        <option>Financial Support</option>
+        <option>Food Assistance</option>
+        <option>Educational Support</option>
+        <option>Medical Assistance</option>
+        <option>Other</option>
+      </select>
 
-    <label>Phone Number</label>
-    <input type="text" name="phone" required>
+      <label>Explain Your Need</label>
+      <textarea placeholder="Briefly explain your situation" required></textarea>
 
-    <label>Purpose of Application</label>
-    <select name="category" required>
-      <option value="">-- Select --</option>
-      <option value="Student Support">Student Support</option>
-      <option value="Business Assistance">Business Assistance</option>
-      <option value="Outreach Partnership">Outreach Partnership</option>
-      <option value="General Support">General Support</option>
-    </select>
+      <button type="submit">Submit Application</button>
+    </form>
 
-    <label>Brief Description</label>
-    <textarea name="message" rows="5" placeholder="Tell us about your need or proposal" required></textarea>
-
-    <button type="submit">Submit Application</button>
-  </form>
-</main>
-
-<!-- Success popup -->
-<div class="popup" id="successPopup">
-  <div class="popup-content">
-    <div class="checkmark-wrapper">
-      <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
-        <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
-        <path class="checkmark__check" fill="none" stroke="#fff" stroke-width="4" d="M14 27l7 7 16-16"/>
-      </svg>
+    <div class="back">
+      <a href="elect-trust.html">← Back to Home</a>
     </div>
-    <h2>Application Submitted!</h2>
-    <p>Your application has been submitted successfully.</p>
-    <a href="index.html" class="btn">Return to Home</a>
   </div>
-</div>
-
-<footer class="footer">
-  <p>© 2025 His Faithful Fame Ministries</p>
-</footer>
-
-<script>
-  const form = document.getElementById('applicationForm');
-  const popup = document.getElementById('successPopup');
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const formData = new FormData(form);
-    const response = await fetch(form.action, {
-      method: form.method,
-      body: formData,
-      headers: { 'Accept': 'application/json' }
-    });
-    if (response.ok) {
-      popup.classList.add('active');
-      form.reset();
-
-      // Ensure back navigation still goes home
-      window.onpopstate = () => window.location.href = 'index.html';
-    } else {
-      alert('There was an error submitting your form. Please try again.');
-    }
-  });
-</script>
-
 </body>
 </html>
